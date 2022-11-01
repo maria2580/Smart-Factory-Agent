@@ -1,6 +1,8 @@
 package org.primitive.SensorRelates;
 
-public class Sensor {
+import java.io.Serializable;
+
+public class Sensor implements Serializable {
     private String name;
     private String command="";
 
