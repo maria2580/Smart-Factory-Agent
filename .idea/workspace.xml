@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f3d3c2d8-b025-4b4e-bcd3-ec7929bb7c7d" name="Changes" comment="레트로핏 사용위해 RetrofitClient와 RetrofitAPI 인터페이스, 동작을 지정하는 Callretrofit 생성">
+    <list default="true" id="f3d3c2d8-b025-4b4e-bcd3-ec7929bb7c7d" name="Changes" comment="레트로핏 인터페이스와 call retrofit 클래스에 서버에 요청 및 반환값을 가져오는 함수 작성">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/primitive/Factory_Agent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/primitive/Factory_Agent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/primitive/LoginToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/primitive/LoginToken.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/primitive/Network/Callretrofit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/primitive/Network/Callretrofit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/primitive/Network/RetrofitAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/primitive/Network/RetrofitAPI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667261356757</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="레트로핏 인터페이스와 call retrofit 클래스에 서버에 요청 및 반환값을 가져오는 함수 작성">
+      <created>1667313126782</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1667313126782</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -260,7 +268,8 @@
     <MESSAGE value="파일로 저장된 센서들 이름과 명령어 값을 다시 읽어 들여 센서객체를 array list에 저장하는 Sensors생성" />
     <MESSAGE value="센서데이터 주고 받기 위해 value 객체 생성" />
     <MESSAGE value="레트로핏 사용위해 RetrofitClient와 RetrofitAPI 인터페이스, 동작을 지정하는 Callretrofit 생성" />
-    <option name="LAST_COMMIT_MESSAGE" value="레트로핏 사용위해 RetrofitClient와 RetrofitAPI 인터페이스, 동작을 지정하는 Callretrofit 생성" />
+    <MESSAGE value="레트로핏 인터페이스와 call retrofit 클래스에 서버에 요청 및 반환값을 가져오는 함수 작성" />
+    <option name="LAST_COMMIT_MESSAGE" value="레트로핏 인터페이스와 call retrofit 클래스에 서버에 요청 및 반환값을 가져오는 함수 작성" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
