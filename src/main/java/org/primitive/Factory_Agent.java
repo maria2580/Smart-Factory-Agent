@@ -1,14 +1,34 @@
 package org.primitive;
 
+import org.primitive.Network.Callretrofit;
+import org.primitive.SensorRelates.Sensor;
+import org.primitive.SensorRelates.Sensors;
+
 import java.util.Scanner;
 
 public class Factory_Agent {
     LoginToken loginToken;
-    Factory_Agent(LoginToken loginToken){
+    String ID;
+    Sensors sensors;
+    Factory_Agent(LoginToken loginToken,String ID){
         this.loginToken= loginToken;
+        this.ID=ID;
+        //Todo sensors 멤버변수에 파일 읽기로 저장된 센서 객체파일(이름,명령어 리스트 객체파일) 읽기로 초기화
     }
     public void execute(){
-        //Todo 팩토리 Agent execute시 센서읽어들여서 센서 값 가져온뒤 처리하여 서버에 전송하는 동작 10초 쉬면서 반복
+        Thread thread=new Thread(){
+            @Override
+            public void run() {
+                super.run();
+                try {
+                    Thread.sleep(10000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                Callretrofit.post_sensors_data(sensors.getAllSensorValue(),ID,loginToken);
+            }
+        };
+
     }
 
 
