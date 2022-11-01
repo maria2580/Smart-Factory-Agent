@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f3d3c2d8-b025-4b4e-bcd3-ec7929bb7c7d" name="Changes" comment="레트로핏 인터페이스와 call retrofit 클래스에 서버에 요청 및 반환값을 가져오는 함수 작성">
+    <list default="true" id="f3d3c2d8-b025-4b4e-bcd3-ec7929bb7c7d" name="Changes" comment="센서 객체 직렬화 읽기 쓰기를 하기위해 serializable implement">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/primitive/Factory_Agent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/primitive/Factory_Agent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/primitive/LoginToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/primitive/LoginToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/primitive/Network/Callretrofit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/primitive/Network/Callretrofit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/primitive/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/primitive/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/primitive/SensorRelates/Sensor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/primitive/SensorRelates/Sensor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +77,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;
   }
 }</component>
-  <component name="RunManager" selected="Gradle.FactoryAgent [jar]">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.primitive.Main" />
       <module name="FactoryAgent.main" />
@@ -242,7 +241,28 @@
       <option name="project" value="LOCAL" />
       <updated>1667313126782</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Callretrofit 클래스는 멤버변수가 없는 단순 함수 집합에 가깝기 때문에 스태틱 메서드로 변경하여 생성자 호출에 의한 오버헤드를 줄임">
+      <created>1667314185187</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1667314185187</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Factory_Agent 객체 execute() 호출시 센서읽어들여서 센서 값 가져온뒤 처리하여 서버에 전송하는 동작 10초 쉬면서 반복">
+      <created>1667314264063</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1667314264063</updated>
+    </task>
+    <task id="LOCAL-00016" summary="센서 객체 직렬화 읽기 쓰기를 하기위해 serializable implement">
+      <created>1667319892829</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1667319892829</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -269,7 +289,10 @@
     <MESSAGE value="센서데이터 주고 받기 위해 value 객체 생성" />
     <MESSAGE value="레트로핏 사용위해 RetrofitClient와 RetrofitAPI 인터페이스, 동작을 지정하는 Callretrofit 생성" />
     <MESSAGE value="레트로핏 인터페이스와 call retrofit 클래스에 서버에 요청 및 반환값을 가져오는 함수 작성" />
-    <option name="LAST_COMMIT_MESSAGE" value="레트로핏 인터페이스와 call retrofit 클래스에 서버에 요청 및 반환값을 가져오는 함수 작성" />
+    <MESSAGE value="Callretrofit 클래스는 멤버변수가 없는 단순 함수 집합에 가깝기 때문에 스태틱 메서드로 변경하여 생성자 호출에 의한 오버헤드를 줄임" />
+    <MESSAGE value="Factory_Agent 객체 execute() 호출시 센서읽어들여서 센서 값 가져온뒤 처리하여 서버에 전송하는 동작 10초 쉬면서 반복" />
+    <MESSAGE value="센서 객체 직렬화 읽기 쓰기를 하기위해 serializable implement" />
+    <option name="LAST_COMMIT_MESSAGE" value="센서 객체 직렬화 읽기 쓰기를 하기위해 serializable implement" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
