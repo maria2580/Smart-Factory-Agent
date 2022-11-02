@@ -95,12 +95,38 @@ public class Main {
                     switch (input2){
                         case "1"://Todo 계정 정보 선택시 동작 고려(최하순위)
                             break;
-                        case "2"://Todo 센서 추가 및 수정 파일 읽기 쓰기 처리(객체 파일로 하는게 어떨까)
+                        case "2":
                             //추가인지 수정인지를 먼저 선택하게 한뒤
                             //두 경우 모두, 파일 없으면 생성, 있으면 열어서 전부 불러오기.
 
                             System.out.println("1.추가 2. 수정");
+                            String input3=new Scanner(System.in).next();
+                            switch (input3){
+                                case "1":
+                                    System.out.println("센서명을 입력하세요");
+                                    String name = new Scanner(System.in).next();
+                                    System.out.println("명령어을 입력하세요");
+                                    String command = new Scanner(System.in).next();
+                                    write_Sensor_object(new Sensor(name, command));
+                                    break;
+                                case "2":
+                                    ArrayList<Sensor> sensors = read_Sensor_object();
+                                    for (int i =0; i<sensors.size();i++){
+                                        System.out.println(i+1+".센서명: "+sensors.get(i).getName()+", 명령어: "+sensors.get(i).getCommand());
+                                    }
+                                    System.out.println("수정할 센서의 인덱스를 선택하세요(skip: quit)");
+                                    String index_s=new Scanner(System.in).next();
+                                    System.out.println("수정할 이름을 입략히세요(skip: quit)");
+                                    String name1=new Scanner(System.in).next();
+                                    System.out.println("수정할 명령어를 입력하세요(skip: quit)");
+                                    String command1=new Scanner(System.in).next();
+                                    if (index_s.equals("quit")|| name1.equals("quit")||command1.equals("quit")){
+                                        break;
+                                    }
+                                    rewrite_Sensor_object(Integer.parseInt(index_s),new Sensor(name1,command1));
+                                    break;
 
+                            }
                             break;
                         default:
                             break;
@@ -150,8 +176,6 @@ public class Main {
         }
 
     }
-    //Todo write_sensor_object는 없는 파일 새로 생성할 때 사용. Rewrite 함수 만들어야하고 sensor객체 안에 있는 파일 명 활용하면 될듯 
-    //Todo 파일 이름순 출력인데 센서 값 정렬 문제발생하는 줄 알았는데 아님. 순서는 클라이언트에서 정렬 순을 바꾸면 됨.
     public static void write_Sensor_object(Sensor sensor) {
         String dir=get_dir();
 
