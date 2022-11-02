@@ -1,25 +1,42 @@
 package org.primitive;
 
 import org.primitive.SensorRelates.Sensor;
+import org.w3c.dom.ls.LSException;
 
+import java.awt.*;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+
+        /*//파일 입출력 테스트 코드
         write_Sensor_object(new Sensor("온도센서 1","안녕하세요0 입력 ㅋdsss"));
         write_Sensor_object(new Sensor("온도센서 2","안녕하세요 1입력 ㅋdsss"));
         write_Sensor_object(new Sensor("온도센서 3","안녕하세요 입2력 ㅋdsss"));
         write_Sensor_object(new Sensor("온도센서 4","안녕하세요 입력3 ㅋdsss"));
         write_Sensor_object(new Sensor("온도센서 15","안녕하세요 입력4 ㅋdsss"));
         ArrayList<Sensor> sensors= read_Sensor_object();
+
+
         System.out.println("센서 읽기 동작:");
         for (int i=0;i<sensors.size();i++){
             Sensor sensor= sensors.get(i);
             System.out.println("name = " + sensor.getName()+", command = "+sensor.getCommand());
         }
 
+        rewrite_Sensor_object(1,new Sensor("2222","@222222가나ab33"));
+        rewrite_Sensor_object(3,new Sensor("2222","@222222가나ab33"));
+        rewrite_Sensor_object(5,new Sensor("2222","@222222가나ab33"));
+        rewrite_Sensor_object(7,new Sensor("2222","@222222가나ab33"));
+        sensors= read_Sensor_object();
+        System.out.println("센서 읽기 재동작:");
+        for (int i=0;i<sensors.size();i++){
+            Sensor sensor= sensors.get(i);
+            System.out.println("name = " + sensor.getName()+", command = "+sensor.getCommand());
+        }*/
+        //피일 입출력 테스트 코드
         System.out.println("\n\nFactory Agnet program\nPrimitive_number_one\n");
         //check login or register
         LoginToken loginToken = new LoginToken("initiated");
@@ -95,37 +112,48 @@ public class Main {
             }
         }while (true);
     }
-    public final static void clearConsole()
-    {
-        try
-        {
+    public final static void clearConsole() {
+        try {
             final String os = System.getProperty("os.name");
-
-            if (os.contains("Windows"))
-            {
+            if (os.contains("Windows")){
                 Runtime.getRuntime().exec("cls");
-            }
-            else
-            {
+            }else {
                 Runtime.getRuntime().exec("clear");
             }
-        }
-        catch (final Exception e)
-        {
+        }catch (final Exception e) {
             //  Handle any exceptions.
         }
     }
-    
-    //Todo write_sensor_object는 없는 파일 새로 생성할 때 사용. Rewrite 함수 만들어야하고 sensor객체 안에 있는 파일 명 활용하면 될듯 
-    //Todo 파일 이름순 출력인데 센서 값 정렬 문제발생하는 줄 알았는데 아님. 순서는 클라이언트에서 정렬 순을 바꾸면 됨.   
-    //Todo 그렇다면 sensor 객체안에 파일명. 이제 필요한가?고민 필요. 아마 없을 듯
-    public static void write_Sensor_object(Sensor sensor) {
+    private static String get_dir(){
         String dir;
         if (System.getProperty("os.name").contains("Windows")) {
             dir = "D:\\\\smartFactory\\sensors\\";
         } else {
-            dir = "/usr/smartFactory/sensors/";
+            dir = "smartFactory/sensors/";
         }
+        return dir;
+    }
+    public static void rewrite_Sensor_object(int index,Sensor sensor){
+        String filename="sensors_data_"+String.format("%010d",index)+".txt";
+        String dir=get_dir();
+        File file=new File(dir+filename);
+        if(!file.exists()){
+            return;
+        }
+        try {
+            FileOutputStream fileStream = new FileOutputStream(file); // 파일에 쓰는 역할
+            ObjectOutputStream os = new ObjectOutputStream(fileStream);
+            os.writeObject(sensor);
+            os.close();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
+    }
+    //Todo write_sensor_object는 없는 파일 새로 생성할 때 사용. Rewrite 함수 만들어야하고 sensor객체 안에 있는 파일 명 활용하면 될듯 
+    //Todo 파일 이름순 출력인데 센서 값 정렬 문제발생하는 줄 알았는데 아님. 순서는 클라이언트에서 정렬 순을 바꾸면 됨.
+    public static void write_Sensor_object(Sensor sensor) {
+        String dir=get_dir();
 
         File file_dir = new File(dir);
         if (!file_dir.exists()) {
@@ -136,13 +164,11 @@ public class Main {
         int i=0;
         do {
             i++;
-            file=new File(dir+"sensors_data_"+i+".txt");
+            file=new File(dir+"sensors_data_"+String.format("%010d",i)+".txt");
         }while(file.exists());
-        //sensor.setFile_index("sensors_data_"+i+".txt");
 
 
         try {
-
             FileOutputStream fileStream = new FileOutputStream(file); // 파일에 쓰는 역할
 
             ObjectOutputStream os = new ObjectOutputStream(fileStream);
@@ -154,26 +180,19 @@ public class Main {
 
     }
     public static ArrayList<Sensor> read_Sensor_object(){
-        String dir;
+        String dir=get_dir();
         ArrayList<Sensor> sensors= new ArrayList<>();
-        if (System.getProperty("os.name").contains("Windows"))
-        {
-            dir="D:\\\\smartFactory\\sensors\\";
-        }
-        else
-        {
-            dir="/usr/smartFactory/sensors/";
-        }
 
         File file_dir= new File(dir);
         if (!file_dir.exists()){
             file_dir.mkdirs();
         }
-        File[] files = file_dir.listFiles();
+        List<File> files = Arrays.asList(file_dir.listFiles());
+        files.sort(Comparator.naturalOrder());//리눅스에서의 경우 변경시간순으로 리스트가 읽히는 것 같아서 파일 읽기시 리스트로 만들고 정렬한뒤 다른 작업수행
 
-        for (int i = 0 ; i< files.length;i++){
+        for (int i = 0 ; i< files.size();i++){
             try {
-                FileInputStream fileStream = new FileInputStream(files[i]); // 직렬화해서 썼던 파일을 다시 읽오는 역할
+                FileInputStream fileStream = new FileInputStream(files.get(i)); // 직렬화해서 썼던 파일을 다시 읽오는 역할
                 ObjectInputStream is = new ObjectInputStream(fileStream); // 읽어온 직렬화된 내용을 역직렬화 하는 역할
                 while(true){
                     try {
@@ -191,6 +210,7 @@ public class Main {
         }
         return sensors;
     }
+
 
 
 }

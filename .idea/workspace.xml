@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f3d3c2d8-b025-4b4e-bcd3-ec7929bb7c7d" name="Changes" comment="센서 객체 직렬화 읽기 쓰기를 하기위해 serializable implement">
+    <list default="true" id="f3d3c2d8-b025-4b4e-bcd3-ec7929bb7c7d" name="Changes" comment="센서 추가, 전체 센서 읽기 함수 작성 및 약간의 테스트 완료.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/primitive/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/primitive/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/primitive/SensorRelates/Sensor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/primitive/SensorRelates/Sensor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +76,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Gradle.FactoryAgent [jar]">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.primitive.Main" />
       <module name="FactoryAgent.main" />
@@ -262,7 +261,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667319892829</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="센서 추가, 전체 센서 읽기 함수 작성 및 약간의 테스트 완료.">
+      <created>1667321140270</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1667321140270</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -292,7 +298,8 @@
     <MESSAGE value="Callretrofit 클래스는 멤버변수가 없는 단순 함수 집합에 가깝기 때문에 스태틱 메서드로 변경하여 생성자 호출에 의한 오버헤드를 줄임" />
     <MESSAGE value="Factory_Agent 객체 execute() 호출시 센서읽어들여서 센서 값 가져온뒤 처리하여 서버에 전송하는 동작 10초 쉬면서 반복" />
     <MESSAGE value="센서 객체 직렬화 읽기 쓰기를 하기위해 serializable implement" />
-    <option name="LAST_COMMIT_MESSAGE" value="센서 객체 직렬화 읽기 쓰기를 하기위해 serializable implement" />
+    <MESSAGE value="센서 추가, 전체 센서 읽기 함수 작성 및 약간의 테스트 완료." />
+    <option name="LAST_COMMIT_MESSAGE" value="센서 추가, 전체 센서 읽기 함수 작성 및 약간의 테스트 완료." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
