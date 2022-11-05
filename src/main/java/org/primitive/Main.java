@@ -40,6 +40,7 @@ public class Main {
         System.out.println("\n\nFactory Agnet program\nPrimitive_number_one\n");
         //check login or register
         LoginToken loginToken = new LoginToken("initiated");
+        String ID="default";
         boolean flag=false;
         do {
             System.out.println("1. 로그인 2. 회원등록");
@@ -67,6 +68,7 @@ public class Main {
                         }
                         System.out.print("ID: ");
                         String input_ID1 = new Scanner(System.in).next();
+                        ID=input_ID1;
                         System.out.print("PW: ");
                         String input_PW2 = new Scanner(System.in).next();
                         // loginToken = new LoginToken(signUp_user(input_ID1, input_PW1));
@@ -86,7 +88,8 @@ public class Main {
             String input = new Scanner(System.in).next();
             switch (input){
                 case "1":
-
+                    Factory_Agent factory_agent = new Factory_Agent(loginToken,ID);
+                    factory_agent.execute();
                     break;
                 case "2":
                     System.out.println("1. 계정 정보\n2. 센서 추가/수정\n");
