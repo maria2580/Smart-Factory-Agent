@@ -11,7 +11,7 @@ import retrofit2.http.Body;
 import java.io.IOException;
 
 public class Callretrofit {
-    public static void post_sensors_data(@Body SensorValue[] sensorValues, @Body String ID, @Body LoginToken loginToken){
+    public static void post_sensors_data(SensorValue[] sensorValues, String ID, LoginToken loginToken){
         Retrofit retrofit = RetrofitClient.getInstance();
         RetrofitAPI service= retrofit.create(RetrofitAPI.class);
         Call<String> call = service.post_Sensors_data(sensorValues,ID,loginToken);
@@ -28,7 +28,7 @@ public class Callretrofit {
             }
         });
     }
-    public static String post_login_request(@Body String ID,@Body String PW) {
+    public static String post_login_request(String ID, String PW) {
         Retrofit retrofit = RetrofitClient.getInstance();
         RetrofitAPI service= retrofit.create(RetrofitAPI.class);
         Call<String> call = service.post_login_request(ID,PW);
@@ -41,7 +41,7 @@ public class Callretrofit {
         }
         return response;
     }
-    public static String post_signUp_request(@Body String ID,@Body String PW) {
+    public static String post_signUp_request(String ID,String PW) {
         Retrofit retrofit = RetrofitClient.getInstance();
         RetrofitAPI service= retrofit.create(RetrofitAPI.class);
         Call<String> call = service.post_signUp_request(ID,PW);

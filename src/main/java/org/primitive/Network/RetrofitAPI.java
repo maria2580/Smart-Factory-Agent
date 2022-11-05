@@ -19,8 +19,8 @@ import retrofit2.http.Path;
 
 public interface RetrofitAPI {
 
-@POST public Call<String> post_Sensors_data(@Body SensorValue[] sensorValues, @Body String ID, @Body LoginToken loginToken);
-@POST public Call<String> post_login_request(@Body String ID, @Body String PW);
-@POST public Call<String> post_signUp_request(@Body String ID, @Body String PW);
+@POST("Sensors") public Call<String> post_Sensors_data(@Body SensorValue[] sensorValues, @Body String ID, @Body LoginToken loginToken);
+@POST ("login")public Call<String> post_login_request(@Body String ID, @Body String PW);
+@POST("sign_up") public Call<String> post_signUp_request(@Body String ID, @Body String PW);
 
 }
