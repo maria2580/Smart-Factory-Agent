@@ -12,10 +12,16 @@ public class Cmd {
     public String inputCommand(String cmd) {
 
         buffer = new StringBuffer();
-
-        buffer.append("cmd.exe ");
-        buffer.append("/c ");
+        if (System.getProperty("os.name").contains("Windows")) {
+            buffer.append("cmd.exe ");
+            buffer.append("/c ");
+        }
+        else {
+            buffer.append("/bin/sh ");
+            buffer.append("-c ");
+        }
         buffer.append(cmd);
+
 
         return buffer.toString();
     }
@@ -27,12 +33,13 @@ public class Cmd {
 
             String line = null;
             readBuffer = new StringBuffer();
-
+            process.waitFor();
             while((line = bufferedReader.readLine()) != null) {
                 readBuffer.append(line);
                 readBuffer.append("\n");
             }
 
+            process.destroy();
             return readBuffer.toString();
         }catch (Exception e) {
             e.printStackTrace();
