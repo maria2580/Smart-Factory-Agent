@@ -33,7 +33,7 @@ public class Sensor implements Serializable {
         String result = cmd.execCommand(command);
 
         System.out.println(result);
-        return "";
+        return result;
     }
 
 }
