@@ -17,7 +17,6 @@ public class Cmd {
         try {
             process = Runtime.getRuntime().exec(command);
 
-            System.out.println("process : "+process.pid() +" info : "+process.info()+" info : "+process.getInputStream());
             bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
 
             String line = null;

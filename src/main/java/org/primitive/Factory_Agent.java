@@ -30,7 +30,7 @@ public class Factory_Agent {
                 for (int i=0;i<sensorValues.length;i++) {
                     System.out.println(sensorValues[i].name+" : "+sensorValues[i].value);
                 }
-                Callretrofit.post_sensors_data(sensors.getAllSensorValue(),ID,loginToken);
+                //Callretrofit.post_sensors_data(sensors.getAllSensorValue(),ID,loginToken);
             }
         };
         thread.start();
