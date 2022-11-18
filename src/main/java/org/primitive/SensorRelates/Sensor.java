@@ -4,8 +4,8 @@ import java.io.Serializable;
 
 public class Sensor implements Serializable {
     private String name;
-    private String command="";
-
+    private String command;
+    //Todo 인덱스 필드 추가
     public Sensor(String name, String command) {
         this.name = name;
         this.command = command;
@@ -29,8 +29,8 @@ public class Sensor implements Serializable {
     public String getValue(){
         Cmd cmd = new Cmd();
 
-        String command = cmd.inputCommand(this.command);
-        String result = cmd.execCommand(command);
+        cmd.setCommand(this.command);
+        String result = cmd.execCommand();
 
         System.out.println(result);
         return result;

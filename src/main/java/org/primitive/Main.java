@@ -1,6 +1,7 @@
 package org.primitive;
 
 import org.primitive.SensorRelates.Sensor;
+import org.primitive.SensorRelates.Sensors;
 import org.w3c.dom.ls.LSException;
 
 import java.awt.*;
@@ -110,10 +111,10 @@ public class Main {
                                     String name = new Scanner(System.in).next();
                                     System.out.println("명령어을 입력하세요");
                                     String command = new Scanner(System.in).next();
-                                    write_Sensor_object(new Sensor(name, command));
+                                    Sensors.write_Sensor_object(new Sensor(name, command));
                                     break;
                                 case "2":
-                                    ArrayList<Sensor> sensors = read_Sensor_object();
+                                    ArrayList<Sensor> sensors = Sensors.read_Sensor_object();
                                     for (int i =0; i<sensors.size();i++){
                                         System.out.println(i+1+".센서명: "+sensors.get(i).getName()+", 명령어: "+sensors.get(i).getCommand());
                                     }
@@ -126,7 +127,7 @@ public class Main {
                                     if (index_s.equals("quit")|| name1.equals("quit")||command1.equals("quit")){
                                         break;
                                     }
-                                    rewrite_Sensor_object(Integer.parseInt(index_s),new Sensor(name1,command1));
+                                    Sensors.rewrite_Sensor_object(Integer.parseInt(index_s),new Sensor(name1,command1));
                                     break;
 
                             }
@@ -153,7 +154,7 @@ public class Main {
             //  Handle any exceptions.
         }
     }
-    private static String get_dir(){
+    public static String get_dir(){
         String dir;
         if (System.getProperty("os.name").contains("Windows")) {
             dir = "D:\\\\smartFactory\\sensors\\";
@@ -161,81 +162,6 @@ public class Main {
             dir = "smartFactory/sensors/";
         }
         return dir;
-    }
-    public static void rewrite_Sensor_object(int index,Sensor sensor){
-        String filename="sensors_data_"+String.format("%010d",index)+".txt";
-        String dir=get_dir();
-        File file=new File(dir+filename);
-        if(!file.exists()){
-            return;
-        }
-        try {
-            FileOutputStream fileStream = new FileOutputStream(file); // 파일에 쓰는 역할
-            ObjectOutputStream os = new ObjectOutputStream(fileStream);
-            os.writeObject(sensor);
-            os.close();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-
-    }
-    public static void write_Sensor_object(Sensor sensor) {
-        String dir=get_dir();
-
-        File file_dir = new File(dir);
-        if (!file_dir.exists()) {
-            file_dir.mkdirs();
-        }
-
-        File file;//파일 객체를 만들고 실제로 있는 파일이라면 i를 높여가면서 만들 파일명을 바꿈.
-        int i=0;
-        do {
-            i++;
-            file=new File(dir+"sensors_data_"+String.format("%010d",i)+".txt");
-        }while(file.exists());
-
-
-        try {
-            FileOutputStream fileStream = new FileOutputStream(file); // 파일에 쓰는 역할
-
-            ObjectOutputStream os = new ObjectOutputStream(fileStream);
-            os.writeObject(sensor);
-            os.close();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-
-    }
-    public static ArrayList<Sensor> read_Sensor_object(){
-        String dir=get_dir();
-        ArrayList<Sensor> sensors= new ArrayList<>();
-
-        File file_dir= new File(dir);
-        if (!file_dir.exists()){
-            file_dir.mkdirs();
-        }
-        List<File> files = Arrays.asList(file_dir.listFiles());
-        files.sort(Comparator.naturalOrder());//리눅스에서의 경우 변경시간순으로 리스트가 읽히는 것 같아서 파일 읽기시 리스트로 만들고 정렬한뒤 다른 작업수행
-
-        for (int i = 0 ; i< files.size();i++){
-            try {
-                FileInputStream fileStream = new FileInputStream(files.get(i)); // 직렬화해서 썼던 파일을 다시 읽오는 역할
-                ObjectInputStream is = new ObjectInputStream(fileStream); // 읽어온 직렬화된 내용을 역직렬화 하는 역할
-                while(true){
-                    try {
-                        sensors.add((Sensor) is.readObject());
-                    } catch (IOException e){
-                        break;
-                    } catch (ClassNotFoundException e){
-                        e.printStackTrace();
-                    }
-                }
-                is.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return sensors;
     }
 
 

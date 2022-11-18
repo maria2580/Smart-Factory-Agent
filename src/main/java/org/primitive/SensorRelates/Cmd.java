@@ -1,44 +1,35 @@
 package org.primitive.SensorRelates;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 
 public class Cmd {
-
-    private StringBuffer buffer;
+    private String[] command;
     private Process process;
     private BufferedReader bufferedReader;
     private StringBuffer readBuffer;
 
-    public String inputCommand(String cmd) {
-
-        buffer = new StringBuffer();
-        if (System.getProperty("os.name").contains("Windows")) {
-            buffer.append("cmd.exe ");
-            buffer.append("/c ");
-        }
-        else {
-            buffer.append("/bin/sh ");
-            buffer.append("-c ");
-        }
-        buffer.append(cmd);
-
-
-        return buffer.toString();
+    public void setCommand(String cmd) {
+        command=new String[]{cmd};
     }
 
-    public String execCommand(String cmd) {
+    public synchronized String execCommand() {
         try {
-            process = Runtime.getRuntime().exec(cmd);
+            process = Runtime.getRuntime().exec(command);
+
+            System.out.println("process : "+process.pid() +" info : "+process.info()+" info : "+process.getInputStream());
             bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
 
             String line = null;
             readBuffer = new StringBuffer();
-            process.waitFor();
+
             while((line = bufferedReader.readLine()) != null) {
                 readBuffer.append(line);
+
+
+                System.out.println(line);
                 readBuffer.append("\n");
             }
-
             process.destroy();
             return readBuffer.toString();
         }catch (Exception e) {
