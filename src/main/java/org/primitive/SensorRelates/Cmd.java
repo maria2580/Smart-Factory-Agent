@@ -24,10 +24,6 @@ public class Cmd {
 
             while((line = bufferedReader.readLine()) != null) {
                 readBuffer.append(line);
-
-
-                System.out.println(line);
-                readBuffer.append("\n");
             }
             process.destroy();
             return readBuffer.toString();
