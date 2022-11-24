@@ -57,12 +57,6 @@ public class Callretrofit {
         }
         return response;
     }
-    //Todo 서버에 sensor테이블 CRUD 만들고 각각에 맞는 레트로핏 요청 만들기
-    //센서 리스트 get은 Sensors 생성자에서 호출하기
-    //센서 객체 필드들은 서버에 있는 sensorDAO 필드랑 똑같이 만들기
-    //update는 기존에 있던 센서 이름이나 명령어 수정이고
-    //post는 새로운 센서 추가 명령이고
-    //delete 메서드로 서버에 있는 명령어 삭제
 
     public static String post_new_sensor(String name, String command,String id){
         Retrofit retrofit = RetrofitClient.getInstance();

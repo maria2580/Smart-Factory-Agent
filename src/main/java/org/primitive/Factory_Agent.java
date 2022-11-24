@@ -14,8 +14,7 @@ public class Factory_Agent {
     Factory_Agent(LoginToken loginToken,String ID){
         this.loginToken= loginToken;
         this.ID=ID;
-        sensors=new Sensors();
-        //Todo sensors 멤버변수에 파일 읽기로 저장된 센서 객체파일(이름,명령어 리스트 객체파일) 읽기로 초기화
+        sensors=new Sensors(ID);
     }
     public void execute(){
 //        Thread thread=new Thread(){
