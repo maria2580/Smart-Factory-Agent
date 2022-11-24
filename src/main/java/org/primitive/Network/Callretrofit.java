@@ -1,6 +1,7 @@
 package org.primitive.Network;
 
 import org.primitive.LoginToken;
+import org.primitive.SensorRelates.Sensor;
 import org.primitive.SensorRelates.SensorValue;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -9,6 +10,8 @@ import retrofit2.Retrofit;
 import retrofit2.http.Body;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Callretrofit {
     public static void post_sensors_data(SensorValue[] sensorValues, String ID, LoginToken loginToken){
@@ -61,5 +64,56 @@ public class Callretrofit {
     //post는 새로운 센서 추가 명령이고
     //delete 메서드로 서버에 있는 명령어 삭제
 
+    public static String post_new_sensor(String name, String command,String id){
+        Retrofit retrofit = RetrofitClient.getInstance();
+        RetrofitAPI service= retrofit.create(RetrofitAPI.class);
+        Call<String> call = service.post_new_sensor(name,command,id);
+        String response = null;
+        try {
+            response= call.execute().body();
 
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        return response;
+    }
+    public static ArrayList<Sensor> get_all_sensor(String id){
+        Retrofit retrofit = RetrofitClient.getInstance();
+        RetrofitAPI service= retrofit.create(RetrofitAPI.class);
+        Call<Sensor[]> call = service.get_all_sensor(id);
+        ArrayList<Sensor> response = null;
+        try {
+            response= (ArrayList<Sensor>) Arrays.asList(call.execute().body());
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        return response;
+    }
+    public static String update_sensor(Sensor sensor){
+        Retrofit retrofit = RetrofitClient.getInstance();
+        RetrofitAPI service= retrofit.create(RetrofitAPI.class);
+        Call<String> call = service.update_sensor(sensor);
+        String response = null;
+        try {
+            response= call.execute().body();
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        return response;
+    }
+    public static String delete_sensor(Sensor sensor){
+        Retrofit retrofit = RetrofitClient.getInstance();
+        RetrofitAPI service= retrofit.create(RetrofitAPI.class);
+        Call<String> call = service.delete_sensor(sensor);
+        String response = null;
+        try {
+            response= call.execute().body();
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        return response;
+    }
 }
