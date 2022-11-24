@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f3d3c2d8-b025-4b4e-bcd3-ec7929bb7c7d" name="Changes" comment="센서객체의 getValue()가 더미 값을 반환하던 상황 수정">
+    <list default="true" id="f3d3c2d8-b025-4b4e-bcd3-ec7929bb7c7d" name="Changes" comment="MySQL 내부에 센서 객체(이름,명령어,센서 오너 아이디)CRUD REST 메서드 작성">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/primitive/Factory_Agent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/primitive/Factory_Agent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/primitive/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/primitive/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/primitive/Network/Callretrofit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/primitive/Network/Callretrofit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/primitive/Network/RetrofitAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/primitive/Network/RetrofitAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/primitive/SensorRelates/Cmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/primitive/SensorRelates/Cmd.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/primitive/SensorRelates/Sensor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/primitive/SensorRelates/Sensor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/primitive/SensorRelates/Sensors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/primitive/SensorRelates/Sensors.java" afterDir="false" />
     </list>
@@ -337,7 +335,42 @@
       <option name="project" value="LOCAL" />
       <updated>1667639678284</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="센서값 읽기 테스트 완료&#10;센서 리스트 조회 함수 Sensors로 이동">
+      <created>1668743280261</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1668743280261</updated>
+    </task>
+    <task id="LOCAL-00026" summary="센서값 읽기 테스트 완료&#10;센서 리스트 조회 함수 Sensors로 이동">
+      <created>1668743480417</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1668743480417</updated>
+    </task>
+    <task id="LOCAL-00027" summary="센서값 읽기 테스트 완료&#10;센서 리스트 조회 함수 Sensors로 이동">
+      <created>1668743663929</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1668743663929</updated>
+    </task>
+    <task id="LOCAL-00028" summary="센서값 읽기 테스트 완료&#10;센서 리스트 조회 함수 Sensors로 이동">
+      <created>1668744009269</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1668744009269</updated>
+    </task>
+    <task id="LOCAL-00029" summary="MySQL 내부에 센서 객체(이름,명령어,센서 오너 아이디)CRUD REST 메서드 작성">
+      <created>1669316985634</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1669316985634</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -375,7 +408,9 @@
     <MESSAGE value="라즈베리파이(리눅스)환경일 경우 쉘을 실행하도록 코드 변경" />
     <MESSAGE value="생성자 호출시 센서 객체 파일 읽어 들이는 함수 호출하여 필드에 저장" />
     <MESSAGE value="센서객체의 getValue()가 더미 값을 반환하던 상황 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="센서객체의 getValue()가 더미 값을 반환하던 상황 수정" />
+    <MESSAGE value="센서값 읽기 테스트 완료&#10;센서 리스트 조회 함수 Sensors로 이동" />
+    <MESSAGE value="MySQL 내부에 센서 객체(이름,명령어,센서 오너 아이디)CRUD REST 메서드 작성" />
+    <option name="LAST_COMMIT_MESSAGE" value="MySQL 내부에 센서 객체(이름,명령어,센서 오너 아이디)CRUD REST 메서드 작성" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

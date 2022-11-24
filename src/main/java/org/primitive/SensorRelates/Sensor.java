@@ -3,14 +3,17 @@ package org.primitive.SensorRelates;
 import java.io.Serializable;
 
 public class Sensor implements Serializable {
+    private long index;
     private String name;
     private String command;
-    //Todo 인덱스 필드 추가
-    public Sensor(String name, String command) {
+    public Sensor(long index,String name, String command) {
+        this.index=index;
         this.name = name;
         this.command = command;
     }
-
+    public long getIndex() {
+        return index;
+    }
     public String getName() {
         return name;
     }
