@@ -5,9 +5,6 @@ import org.primitive.Network.Callretrofit;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
 
 public class Sensors {
     private ArrayList<Sensor> sensors;
@@ -23,9 +20,7 @@ public class Sensors {
     public SensorValue[] getAllSensorValue(){
         SensorValue[] sensorValues=new SensorValue[sensors.size()];
         for(int i=0;i<sensors.size();i++){
-            sensorValues[i]=new SensorValue();
-            sensorValues[i].name=sensors.get(i).getName();
-            sensorValues[i].value=sensors.get(i).getValue();
+            sensorValues[i]=new SensorValue(sensors.get(i).getName(),sensors.get(i).getValue());
         }
         return sensorValues;
     }
@@ -78,5 +73,4 @@ public class Sensors {
             e.printStackTrace();
         }
     }
-
 }

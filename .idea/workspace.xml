@@ -4,12 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f3d3c2d8-b025-4b4e-bcd3-ec7929bb7c7d" name="Changes" comment="MySQL 내부에 센서 객체(이름,명령어,센서 오너 아이디)CRUD REST 메서드 작성">
+    <list default="true" id="f3d3c2d8-b025-4b4e-bcd3-ec7929bb7c7d" name="Changes" comment="@Body 매개변수는 함수당 하나만 있어야 하므로 DTO,VO 객체로 만들어서 전달">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/primitive/Network/Env.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/primitive/Network/LoginStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/primitive/Network/VO/LoginVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/primitive/Network/VO/SignUpVO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/primitive/Factory_Agent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/primitive/Factory_Agent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/primitive/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/primitive/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/primitive/Network/Callretrofit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/primitive/Network/Callretrofit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/primitive/Network/RetrofitAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/primitive/Network/RetrofitAPI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/primitive/SensorRelates/Sensor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/primitive/SensorRelates/Sensor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/primitive/SensorRelates/SensorValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/primitive/SensorRelates/SensorValue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/primitive/SensorRelates/Sensors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/primitive/SensorRelates/Sensors.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,20 +74,38 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectId" id="2GtbGTIyY9qX7YJRxmUN8ZlBiTw" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/tte&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "D:/SmartFactory_Service_code/FactoryAgent/src/main/java/org/primitive/Network/VO",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.17",
+    "project.structure.side.proportion": "0.0",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "build.tools"
   }
-}</component>
-  <component name="RunManager" selected="Gradle.FactoryAgent [jar]">
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\SmartFactory_Service_code\FactoryAgent\src\main\java\org\primitive\Network\VO" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\SmartFactory_Service_code\FactoryAgent\src\main\java\org\primitive\Network" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.primitive.Network.VO" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
     <configuration name="DNS_test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.primitive.DNS_test" />
       <module name="FactoryAgent.main" />
@@ -151,10 +176,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Gradle.FactoryAgent [jar]" />
         <item itemvalue="Application.DNS_test" />
         <item itemvalue="Gradle.FactoryAgent [build]" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -370,7 +395,21 @@
       <option name="project" value="LOCAL" />
       <updated>1669316985634</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="주석 삭제">
+      <created>1669317681389</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1669317681389</updated>
+    </task>
+    <task id="LOCAL-00031" summary="센서 명령어 리스트를 센서 객체(이름,명령어,소유주)를 스프링통해 DB에 저장하도록 변경">
+      <created>1669317743803</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1669317743803</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -385,9 +424,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="let first commit" />
-    <MESSAGE value="로그인처리 후 유저옵션 선택" />
-    <MESSAGE value="idea옵션 UTF8로 읽히도록 수정" />
     <MESSAGE value="주기적으로 센서데이터를 수집하는 함수를 호출한뒤 서버로 송신하는 agent 객체 생성" />
     <MESSAGE value="토큰 값을 갖고 있을 로그인토큰 객체 생성" />
     <MESSAGE value="cmd 또는 터미널 명령을 통해 센서를 얻을 수 있도록 Cmd 객체 생성" />
@@ -410,7 +446,10 @@
     <MESSAGE value="센서객체의 getValue()가 더미 값을 반환하던 상황 수정" />
     <MESSAGE value="센서값 읽기 테스트 완료&#10;센서 리스트 조회 함수 Sensors로 이동" />
     <MESSAGE value="MySQL 내부에 센서 객체(이름,명령어,센서 오너 아이디)CRUD REST 메서드 작성" />
-    <option name="LAST_COMMIT_MESSAGE" value="MySQL 내부에 센서 객체(이름,명령어,센서 오너 아이디)CRUD REST 메서드 작성" />
+    <MESSAGE value="주석 삭제" />
+    <MESSAGE value="센서 명령어 리스트를 센서 객체(이름,명령어,소유주)를 스프링통해 DB에 저장하도록 변경" />
+    <MESSAGE value="@Body 매개변수는 함수당 하나만 있어야 하므로 DTO,VO 객체로 만들어서 전달" />
+    <option name="LAST_COMMIT_MESSAGE" value="@Body 매개변수는 함수당 하나만 있어야 하므로 DTO,VO 객체로 만들어서 전달" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

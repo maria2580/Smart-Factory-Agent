@@ -1,6 +1,11 @@
 package org.primitive.SensorRelates;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@AllArgsConstructor
+@Getter
 public class SensorValue {
-    public String name;
-    public String value;
+    private String name;
+    private String value;
 }

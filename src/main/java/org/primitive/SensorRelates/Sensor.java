@@ -1,7 +1,11 @@
 package org.primitive.SensorRelates;
 
-import java.io.Serializable;
+import lombok.Getter;
+import lombok.Setter;
 
+import java.io.Serializable;
+@Getter
+@Setter
 public class Sensor implements Serializable {
     private long index;
     private String name;
@@ -11,25 +15,7 @@ public class Sensor implements Serializable {
         this.name = name;
         this.command = command;
     }
-    public long getIndex() {
-        return index;
-    }
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getCommand() {
-        return command;
-    }
-
-    public void setCommand(String command) {
-        this.command = command;
-    }
-    public String getValue(){
+      public String getValue(){
         Cmd cmd = new Cmd();
 
         cmd.setCommand(this.command);

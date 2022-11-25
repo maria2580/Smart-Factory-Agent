@@ -1,11 +1,9 @@
 package org.primitive;
 
 import org.primitive.Network.Callretrofit;
-import org.primitive.SensorRelates.Sensor;
 import org.primitive.SensorRelates.SensorValue;
 import org.primitive.SensorRelates.Sensors;
 
-import java.util.Scanner;
 
 public class Factory_Agent {
     LoginToken loginToken;
@@ -23,10 +21,7 @@ public class Factory_Agent {
 //                super.run();
                 while (true) {
                     SensorValue[] sensorValues = sensors.getAllSensorValue();
-                    for (int i = 0; i < sensorValues.length; i++) {
-                        System.out.println(sensorValues[i].name + " : " + sensorValues[i].value);
-                    }
-                    //Callretrofit.post_sensors_data(sensors.getAllSensorValue(),ID,loginToken);
+                    Callretrofit.post_sensors_data(sensors.getAllSensorValue(),ID,loginToken.getTokenValue());
                     try {
                         Thread.sleep(10000);
                     } catch (InterruptedException e) {
