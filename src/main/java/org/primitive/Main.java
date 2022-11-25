@@ -1,14 +1,11 @@
 package org.primitive;
 
 import org.primitive.Network.Callretrofit;
+import org.primitive.Network.LoginStatus;
 import org.primitive.SensorRelates.Sensor;
 import org.primitive.SensorRelates.Sensors;
-import org.w3c.dom.ls.LSException;
 
-import java.awt.*;
-import java.io.*;
 import java.util.*;
-import java.util.List;
 
 public class Main {
     public static String user_id;
@@ -55,28 +52,29 @@ public class Main {
                     String input_ID = new Scanner(System.in).next();
                     System.out.print("PW: ");
                     String input_PW = new Scanner(System.in).next();
-                    //loginToken = new LoginToken(check_login(input_ID, input_PW));
-                    if (loginToken.getTokenValue().equals("wrong ID,PW")) {
+                    loginToken = new LoginToken(Callretrofit.post_login_request(input_ID,input_PW));
+                    if (loginToken.getTokenValue().equals(LoginStatus.DENIED)) {
                         System.out.println("로그인 실패, id와 비밀번호를 다시 확인해 주세요");
                     }
-                    else {
+                    else if(loginToken.getTokenValue().equals(LoginStatus.PERMITTED)) {
+                        user_id=input_ID;
                         flag=true;
                     }
-
                     break;
                 case "2":
                     System.out.println("회원등록을 시작합니다. ID와 PW를 입력하세요.");
                     do {
-                        if (loginToken.getTokenValue().equals("exist user")) {
-                            System.out.println("sign up 실패. 같은 유저가 있습니다. 다시 입력하세요.\n");
-                        }
                         System.out.print("ID: ");
                         String input_ID1 = new Scanner(System.in).next();
                         ID=input_ID1;
                         System.out.print("PW: ");
-                        String input_PW2 = new Scanner(System.in).next();
-                        // loginToken = new LoginToken(signUp_user(input_ID1, input_PW1));
-                        if (!(loginToken.getTokenValue().equals("initiated")||loginToken.getTokenValue().equals("exist user"))) {
+                        String input_PW1 = new Scanner(System.in).next();
+                        loginToken = new LoginToken(Callretrofit.post_signUp_request(input_ID1, input_PW1));
+                        if (loginToken.getTokenValue().equals(LoginStatus.EXIST_ID)) {
+                            System.out.println("sign up 실패. 같은 유저가 있습니다. 다시 입력하세요.\n");
+                        }
+                        if (loginToken.getTokenValue().equals(LoginStatus.PERMITTED)) {
+                            user_id=input_ID1;
                             flag=true;
                         }
                     } while (loginToken.getTokenValue().equals("initiated")||loginToken.getTokenValue().equals("exist user"));
