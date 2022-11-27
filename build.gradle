@@ -13,9 +13,15 @@ tasks.withType(JavaCompile) {
 jar {
     manifest {
         attributes(
-                'Main-Class': 'org.primitive.Main'
+                'Main-Class': 'org.primitive.Main',
         )
     }
+    from {
+        configurations.runtimeClasspath.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+
 }
 repositories {
     mavenCentral()
@@ -28,9 +34,9 @@ dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
 //http 통신 레트로핏2
-    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
-    implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
-    implementation 'com.squareup.retrofit2:converter-scalars:2.5.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
 }
 
 test {
