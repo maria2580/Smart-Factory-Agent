@@ -80,7 +80,7 @@ public class Callretrofit {
         Call<Sensor[]> call = service.get_all_sensor(id);
         ArrayList<Sensor> response = null;
         try {
-            response= (ArrayList<Sensor>) Arrays.asList(call.execute().body());
+            response= new ArrayList<>( Arrays.asList(call.execute().body()));
 
         }catch (IOException e){
             e.printStackTrace();
@@ -100,10 +100,10 @@ public class Callretrofit {
         }
         return response;
     }
-    public static String delete_sensor(Sensor sensor){
+    public static String delete_sensor(long index){
         Retrofit retrofit = RetrofitClient.getInstance();
         RetrofitAPI service= retrofit.create(RetrofitAPI.class);
-        Call<String> call = service.delete_sensor(sensor);
+        Call<String> call = service.delete_sensor(index);
         String response = null;
         try {
             response= call.execute().body();
