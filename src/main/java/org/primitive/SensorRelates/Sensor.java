@@ -6,7 +6,7 @@ import lombok.Setter;
 import java.io.Serializable;
 @Getter
 @Setter
-public class Sensor implements Serializable {
+public class Sensor {
     private long index;
     private String name;
     private String command;
@@ -17,11 +17,8 @@ public class Sensor implements Serializable {
     }
       public String getValue(){
         Cmd cmd = new Cmd();
-
         cmd.setCommand(this.command);
         String result = cmd.execCommand();
-
-        System.out.println(result);
         return result;
     }
 

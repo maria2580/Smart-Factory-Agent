@@ -7,6 +7,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class Sensors {
+    String ID;
     private ArrayList<Sensor> sensors;
     public int size(){
         return sensors.size();
@@ -15,6 +16,7 @@ public class Sensors {
         return sensors.get(i);
     }
     public Sensors(String ID){
+        this.ID=ID;
         sensors= Callretrofit.get_all_sensor(ID);
     }
     public SensorValue[] getAllSensorValue(){
@@ -25,52 +27,21 @@ public class Sensors {
         return sensorValues;
     }
 
-    public static void write_Sensor_object(Sensor sensor) {
-//        String dir=Main.get_dir();
-//
-//        File file_dir = new File(dir);
-//        if (!file_dir.exists()) {
-//            file_dir.mkdirs();
-//        }
-//
-//        File file;//파일 객체를 만들고 실제로 있는 파일이라면 i를 높여가면서 만들 파일명을 바꿈.
-//        int i=0;
-//        do {
-//            i++;
-//            file=new File(dir+"sensors_data_"+String.format("%010d",i)+".txt");
-//        }while(file.exists());
-//
-//
-//        try {
-//            FileOutputStream fileStream = new FileOutputStream(file); // 파일에 쓰는 역할
-//
-//            ObjectOutputStream os = new ObjectOutputStream(fileStream);
-//            os.writeObject(sensor);
-//            os.close();
-//        }catch (IOException e){
-//            e.printStackTrace();
-//        }
-
-
-    }
-
-    public ArrayList<Sensor> getSensors(){
-        return sensors;
-    }
-    public static void rewrite_Sensor_object(int index,Sensor sensor){
-        String filename="sensors_data_"+String.format("%010d",index)+".txt";
-        String dir=Main.get_dir();
-        File file=new File(dir+filename);
-        if(!file.exists()){
-            return;
+    public void print(){
+        for (int i =0; i<sensors.size();i++){
+            System.out.println(sensors.get(i).getIndex()+".센서명: "+sensors.get(i).getName()+", 명령어: "+sensors.get(i).getCommand());
         }
-        try {
-            FileOutputStream fileStream = new FileOutputStream(file); // 파일에 쓰는 역할
-            ObjectOutputStream os = new ObjectOutputStream(fileStream);
-            os.writeObject(sensor);
-            os.close();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
+    }
+    public void append(String name, String command, String user_id){
+        Callretrofit.post_new_sensor(name, command,user_id);
+        sensors=Callretrofit.get_all_sensor(ID);
+    }
+    public void update(Sensor sensor){
+        Callretrofit.update_sensor(sensor);
+        sensors=Callretrofit.get_all_sensor(ID);
+    }
+    public void delete(long index){
+        Callretrofit.delete_sensor(index);
+        sensors=Callretrofit.get_all_sensor(ID);
     }
 }
