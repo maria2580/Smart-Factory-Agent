@@ -11,13 +11,13 @@ import retrofit2.http.*;
 
 public interface RetrofitAPI {
 
-@POST("sensor_data") Call<String> post_Sensors_data(@Body SensorValueDTO sensorValueDTO);
+@POST("sensors_value") Call<String> post_Sensors_data(@Body SensorValueDTO sensorValueDTO);
 @POST ("login") Call<String> post_login_request(@Body LoginVO loginVO);
 @POST ("sign_up") Call<String> post_signUp_request(@Body SignUpVO signUpVO);
 
 @POST("sensors") Call<String> post_new_sensor(@Body SensorDTO sensorDTO);
-@GET("sensors") Call<Sensor[]> get_all_sensor(@Body String id);
+@GET("sensors/{ID}") Call<Sensor[]> get_all_sensor(@Path("ID") String id);
 @PATCH("sensors") Call<String> update_sensor(@Body Sensor sensor);
-@DELETE("sensors") Call<String>delete_sensor(@Body Sensor sensor);
+@DELETE("sensors/{index}") Call<String>delete_sensor(@Path("index") long index);
 
 }
