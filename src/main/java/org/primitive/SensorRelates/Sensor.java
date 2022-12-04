@@ -2,8 +2,6 @@ package org.primitive.SensorRelates;
 
 import lombok.Getter;
 import lombok.Setter;
-
-import java.io.Serializable;
 @Getter
 @Setter
 public class Sensor {
@@ -15,7 +13,7 @@ public class Sensor {
         this.name = name;
         this.command = command;
     }
-      public String getValue(){
+    public String getValue(){
         Cmd cmd = new Cmd();
         cmd.setCommand(this.command);
         String result = cmd.execCommand();

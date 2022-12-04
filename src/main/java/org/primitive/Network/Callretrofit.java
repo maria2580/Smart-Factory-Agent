@@ -17,10 +17,10 @@ import java.util.Arrays;
 
 
 public class Callretrofit {
-    public static void post_sensors_data(SensorValue[] sensorValues, String ID, String loginToken){
+    public static void post_sensors_data(SensorValue[] sensorValues, String ID){
         Retrofit retrofit = RetrofitClient.getInstance();
         RetrofitAPI service= retrofit.create(RetrofitAPI.class);
-        Call<String> call = service.post_Sensors_data(new SensorValueDTO(sensorValues,ID,loginToken));
+        Call<String> call = service.post_Sensors_data(new SensorValueDTO(sensorValues,ID));
         call.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {

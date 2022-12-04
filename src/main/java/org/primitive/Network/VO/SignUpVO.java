@@ -8,4 +8,4 @@ import lombok.Getter;
 public class SignUpVO {
        private String ID;
        private String PW;
-    }
+}

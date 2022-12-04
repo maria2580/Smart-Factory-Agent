@@ -10,5 +10,4 @@ import org.primitive.SensorRelates.SensorValue;
 public class SensorValueDTO {
     private SensorValue[] sensorValues;
     private String ID;
-    private String loginToken;
 }

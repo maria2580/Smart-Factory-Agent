@@ -1,23 +1,16 @@
 package org.primitive.SensorRelates;
 
-import org.primitive.Main;
 import org.primitive.Network.Callretrofit;
 
-import java.io.*;
 import java.util.ArrayList;
 
 public class Sensors {
     String ID;
     private ArrayList<Sensor> sensors;
-    public int size(){
-        return sensors.size();
-    }
-    public Sensor get(int i){
-        return sensors.get(i);
-    }
+
     public Sensors(String ID){
         this.ID=ID;
-        sensors= Callretrofit.get_all_sensor(ID);
+        sensors = Callretrofit.get_all_sensor(ID);
     }
     public SensorValue[] getAllSensorValue(){
         SensorValue[] sensorValues=new SensorValue[sensors.size()];

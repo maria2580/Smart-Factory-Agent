@@ -1,7 +1,6 @@
 package org.primitive.SensorRelates;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.nio.charset.Charset;
 
 public class Cmd {
     private String[] command;

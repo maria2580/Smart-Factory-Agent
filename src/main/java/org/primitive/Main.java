@@ -3,7 +3,6 @@ package org.primitive;
 import org.primitive.Network.Callretrofit;
 import org.primitive.Network.LoginStatus;
 import org.primitive.SensorRelates.Sensor;
-import org.primitive.SensorRelates.Sensors;
 
 import java.util.*;
 
@@ -11,36 +10,8 @@ public class Main {
     public static String user_id;
     public static Factory_Agent factory_agent;
     public static void main(String[] args) {
-
-        /*//파일 입출력 테스트 코드
-        write_Sensor_object(new Sensor("온도센서 1","안녕하세요0 입력 ㅋdsss"));
-        write_Sensor_object(new Sensor("온도센서 2","안녕하세요 1입력 ㅋdsss"));
-        write_Sensor_object(new Sensor("온도센서 3","안녕하세요 입2력 ㅋdsss"));
-        write_Sensor_object(new Sensor("온도센서 4","안녕하세요 입력3 ㅋdsss"));
-        write_Sensor_object(new Sensor("온도센서 15","안녕하세요 입력4 ㅋdsss"));
-        ArrayList<Sensor> sensors= read_Sensor_object();
-
-
-        System.out.println("센서 읽기 동작:");
-        for (int i=0;i<sensors.size();i++){
-            Sensor sensor= sensors.get(i);
-            System.out.println("name = " + sensor.getName()+", command = "+sensor.getCommand());
-        }
-
-        rewrite_Sensor_object(1,new Sensor("2222","@222222가나ab33"));
-        rewrite_Sensor_object(3,new Sensor("2222","@222222가나ab33"));
-        rewrite_Sensor_object(5,new Sensor("2222","@222222가나ab33"));
-        rewrite_Sensor_object(7,new Sensor("2222","@222222가나ab33"));
-        sensors= read_Sensor_object();
-        System.out.println("센서 읽기 재동작:");
-        for (int i=0;i<sensors.size();i++){
-            Sensor sensor= sensors.get(i);
-            System.out.println("name = " + sensor.getName()+", command = "+sensor.getCommand());
-        }*/
-        //피일 입출력 테스트 코드
         System.out.println("\n\nFactory Agnet program\nPrimitive_number_one\n");
-        //check login or register
-        LoginToken loginToken = new LoginToken("initiated");
+
         boolean flag=false;
         do {
             System.out.println("1. 로그인 2. 회원등록");
@@ -51,11 +22,11 @@ public class Main {
                     String input_ID = new Scanner(System.in).next();
                     System.out.print("PW: ");
                     String input_PW = new Scanner(System.in).next();
-                    loginToken = new LoginToken(Callretrofit.post_login_request(input_ID,input_PW));
-                    if (loginToken.getTokenValue().equals(LoginStatus.DENIED+"")) {
+                    String result = Callretrofit.post_login_request(input_ID,input_PW);
+                    if (result.equals(LoginStatus.DENIED+"")) {
                         System.out.println("로그인 실패, id와 비밀번호를 다시 확인해 주세요");
                     }
-                    else if(loginToken.getTokenValue().equals(LoginStatus.PERMITTED+"")) {
+                    else if(result.equals(LoginStatus.PERMITTED+"")) {
                         user_id=input_ID;
                         flag=true;
                     }
@@ -66,18 +37,18 @@ public class Main {
                     String input_ID1 = new Scanner(System.in).next();
                     System.out.print("PW: ");
                     String input_PW1 = new Scanner(System.in).next();
-                    loginToken = new LoginToken(Callretrofit.post_signUp_request(input_ID1, input_PW1));
-                    if (loginToken.getTokenValue().equals(LoginStatus.EXIST_ID+"")) {
+                    result = Callretrofit.post_signUp_request(input_ID1, input_PW1);
+                    if (result.equals(LoginStatus.EXIST_ID+"")) {
                         System.out.println("sign up 실패. 같은 유저가 있습니다. 다시 입력하세요.\n");
                     }
-                    if (loginToken.getTokenValue().equals(LoginStatus.PERMITTED+"")) {
+                    if (result.equals(LoginStatus.PERMITTED+"")) {
                         user_id=input_ID1;
                         flag=true;
                     }
                     break;
             }
         }while (!flag);
-        factory_agent = new Factory_Agent(loginToken,user_id);//공장 객체 생성, 내부에 센서배열 객체 있음
+        factory_agent = new Factory_Agent(user_id);//공장 객체 생성, 내부에 센서배열 객체 있음
         do{
             clearConsole();//Todo 콘솔창 왜 안지워질까
             System.out.println("\n1. Agent 실행\n2. 환경 설정\n");
@@ -166,12 +137,8 @@ public class Main {
             }else {
                 Runtime.getRuntime().exec("clear");
             }
-        }catch (final Exception e) {
-            //  Handle any exceptions.
-        }
+        }catch (final Exception e) {}
     }
-
-
 }
 
 
