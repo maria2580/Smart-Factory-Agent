@@ -116,7 +116,7 @@ public class Main {
                         if (command.equals("quit")){
                             break;
                         }
-                        factory_agent.sensors.update(new Sensor(Integer.parseInt(index_s),name,command));
+                        factory_agent.sensors.update(new Sensor(Long.parseLong(index_s),name,command));
                         break;
                     case "3":
                         factory_agent.sensors.print();

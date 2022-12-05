@@ -1,9 +1,6 @@
 package org.primitive.Network;
 
-import org.primitive.Network.VO.LoginVO;
-import org.primitive.Network.VO.SensorDTO;
-import org.primitive.Network.VO.SensorValueDTO;
-import org.primitive.Network.VO.SignUpVO;
+import org.primitive.Network.VO.*;
 import org.primitive.SensorRelates.Sensor;
 import org.primitive.SensorRelates.SensorValue;
 import retrofit2.Call;
