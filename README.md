@@ -10,11 +10,13 @@
 이 에이전트는 `org.primitive` 패키지 내에 개발되었으며, "Primitive_number_one" 팀/개발자의 프로젝트로 보입니다.
 
 ## 📹 작동 영상
+   ### 센서값 서버 전송 기능
    <div align="center"><video src="https://github.com/user-attachments/assets/82b56b3e-d480-4c2d-8042-4badf07f2599" width="400">
-      <p>로그인 후, 종이컵에 물을 따르자, 실시간으로 서버에 센서값이 전달되고, 어플리케이션은 서버에 저장된 최신값을 조회하여 보여준다.</p>
+      
    </div> 
-
-
+   <div align="center">
+      <p>로그인 후, 종이컵에 물을 따르자, 실시간으로 서버에 센서값이 전달되고, 어플리케이션은 서버에 저장된 최신값을 조회하여 보여준다.</p>
+   </div>
 
 ## ✨ 주요 기능
 
