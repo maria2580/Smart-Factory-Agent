@@ -1,7 +1,9 @@
 # Factory Agent - Sensor Data Collector
 
 ## 🌟 소개
-   <div align="center"><image src="https://github.com/user-attachments/assets/f70c7a87-591a-4013-975e-9d93cde735d2" width="400"></div> 
+   <div align="center"><image src="https://github.com/user-attachments/assets/f70c7a87-591a-4013-975e-9d93cde735d2" width="400">
+      <p>라즈베리파이 4B 3대에 아두이노 및 센서를 부착하여 준비된 모습</p>
+   </div> 
    <div align="center"><video src="https://github.com/user-attachments/assets/82b56b3e-d480-4c2d-8042-4badf07f2599" width="400"></div> 
 
 
