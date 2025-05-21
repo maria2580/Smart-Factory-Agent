@@ -1,4 +1,4 @@
-# Factory Agent - Sensor Data Collector
+# Smart Factory Agent - Sensor Data Collector
 
 ## 🌟 소개
    <div align="center"><image src="https://github.com/user-attachments/assets/f70c7a87-591a-4013-975e-9d93cde735d2" width="400">
@@ -16,6 +16,26 @@
       <p>회원가입 및 로그인 후,물 감지센서의 값을 읽는 파이썬 코드를 에이전트 프로그램에 등록하여 코드를 주입한다.</p>
   <p>실시간 감시를 실행하고 종이컵에 물을 따르자, 실시간으로 서버에 센서값이 전달되고, 어플리케이션은 서버에 저장된 최신값을 조회하여 보여준다.</p>
    </div>
+   
+## 🏅 주요 성과
+<table align="center">
+      <tr>
+            <td align="center">
+                  <image src="https://github.com/user-attachments/assets/61a08bdf-ebcb-4d5c-82b4-84b23467a586" width="400">
+            </td>
+            <td align="center">
+                  <image src="https://github.com/user-attachments/assets/08b7f39e-1905-497b-a0a5-b4b10aea42be" width="400">
+            </td>
+      </tr>
+      <tr>
+            <td align="center">
+                  AIoT 스마트 팩토리 시스템 연구를 위한 테스트베드 구축
+            </td>
+            <td align="center">
+                  2022 한국정보기술학회 대학생 논문 경진대회 동상 수상
+            </td>
+      </tr>
+</table>
 
 ## ✨ 주요 기능
 
