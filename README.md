@@ -7,8 +7,6 @@
       
 **Factory Agent**는 사용자가 정의한 센서로부터 주기적으로 데이터를 수집하여 원격 서버로 전송하는 Java 기반의 커맨드 라인 애플리케이션입니다. 사용자는 에이전트를 통해 서버에 로그인/회원가입하고, 모니터링할 센서(시스템 명령어 기반)를 동적으로 추가, 수정, 삭제할 수 있습니다.
 
-이 에이전트는 `org.primitive` 패키지 내에 개발되었으며, "Primitive_number_one" 팀/개발자의 프로젝트로 보입니다.
-
 ## 📹 작동 영상
    ### 센서값 서버 전송 기능
    <div align="center"><video src="https://github.com/user-attachments/assets/82b56b3e-d480-4c2d-8042-4badf07f2599" width="400">
