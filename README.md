@@ -4,13 +4,17 @@
    <div align="center"><image src="https://github.com/user-attachments/assets/f70c7a87-591a-4013-975e-9d93cde735d2" width="400">
       <p>라즈베리파이 4B 3대에 아두이노 및 센서를 부착하여 준비된 모습</p>
    </div> 
-   <div align="center"><video src="https://github.com/user-attachments/assets/82b56b3e-d480-4c2d-8042-4badf07f2599" width="400"></div> 
-
-
-
+      
 **Factory Agent**는 사용자가 정의한 센서로부터 주기적으로 데이터를 수집하여 원격 서버로 전송하는 Java 기반의 커맨드 라인 애플리케이션입니다. 사용자는 에이전트를 통해 서버에 로그인/회원가입하고, 모니터링할 센서(시스템 명령어 기반)를 동적으로 추가, 수정, 삭제할 수 있습니다.
 
 이 에이전트는 `org.primitive` 패키지 내에 개발되었으며, "Primitive_number_one" 팀/개발자의 프로젝트로 보입니다.
+
+## 📹 작동 영상
+   <div align="center"><video src="https://github.com/user-attachments/assets/82b56b3e-d480-4c2d-8042-4badf07f2599" width="400">
+      <p>로그인 후, 종이컵에 물을 따르자, 실시간으로 서버에 센서값이 전달되고, 어플리케이션은 서버에 저장된 최신값을 조회하여 보여준다.</p>
+   </div> 
+
+
 
 ## ✨ 주요 기능
 
