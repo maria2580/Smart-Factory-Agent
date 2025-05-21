@@ -108,7 +108,3 @@
     * `Sensors.java`: 여러 `Sensor` 객체의 컬렉션을 관리하고, 서버와 동기화.
     * `SensorValue.java`: 센서 이름과 측정값을 담는 DTO.
     * `Cmd.java` (가상): 시스템 명령어 실행을 담당할 것으로 예상되는 클래스 (별도 구현 필요).
-
----
-
-이 README가 Factory Agent 프로젝트를 이해하고 사용하는 데 도움이 되기를 바랍니다!
